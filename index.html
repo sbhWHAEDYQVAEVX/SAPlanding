@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subconscious Alignment Protocol | 8-Week Program</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --primary-blue-hover: #002244;
+            --text-black: #111111;
+            --text-gray: #4b5563;
+            --bg-white: #ffffff;
+            --bg-soft: #f9fafb;
+            --border: #e5e7eb;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-black); background-color: var(--bg-white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; }
+        p { color: var(--text-gray); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 100px 0; }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero */
+        #hero { padding-top: 140px; text-align: center; background: radial-gradient(circle at top, #f0f4f8 0%, #ffffff 70%); }
+        #hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 1.5rem; }
+        #hero .subtitle { font-size: 1.5rem; max-width: 800px; margin: 0 auto 2rem; }
+        .framework-mini { font-weight: 600; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 2.5rem; display: block; }
+        .limit-text { display: block; margin-top: 1rem; font-size: 0.875rem; color: #ef4444; font-weight: 600; }
+
+        .video-container {
+            width: 100%; max-width: 900px; aspect-ratio: 16/9; background: #000; margin: 4rem auto 0;
+            border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Problem */
+        #problem { background-color: var(--bg-soft); }
+        .problem-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .problem-list { list-style: none; margin-top: 2rem; }
+        .problem-list li { padding: 1rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; font-weight: 500; }
+        .problem-list li::before { content: "✕"; color: #ef4444; margin-right: 1rem; font-weight: 900; }
+
+        /* Framework */
+        .framework-visual { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 4rem; gap: 1rem; }
+        .step { flex: 1; text-align: center; padding: 2rem 1rem; background: white; border: 1px solid var(--border); border-radius: 8px; transition: var(--transition); }
+        .step h3 { color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.125rem; text-transform: uppercase; }
+        .arrow { display: flex; align-items: center; padding-top: 2.5rem; color: var(--border); font-size: 1.5rem; }
+
+        /* Week Grid */
+        #overview { background-color: var(--text-black); color: white; }
+        .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+        .week-card { padding: 2rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; transition: var(--transition); }
+        .week-label { font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+
+        /* Audience */
+        .audience-box { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+        .audience-item { padding: 2rem; background: var(--bg-soft); border-radius: 12px; }
+        .audience-item ul { list-style: none; margin-top: 1rem; }
+        .audience-item li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .audience-item li::before { content: "→"; position: absolute; left: 0; color: var(--primary-blue); }
+
+        /* Pricing */
+        .pricing-card { max-width: 500px; margin: 0 auto; text-align: center; padding: 4rem 2rem; border: 2px solid var(--primary-blue); border-radius: 16px; }
+        .founding-price { font-size: 4rem; font-weight: 800; color: var(--primary-blue); line-height: 1; }
+        .future-price { text-decoration: line-through; color: var(--text-gray); font-size: 1.25rem; margin-bottom: 1rem; }
+
+        @media (max-width: 768px) {
+            .problem-content, .audience-box { grid-template-columns: 1fr; }
+            .framework-visual { flex-direction: column; }
+            .arrow { display: none; }
+            section { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <div class="container">
+            <span class="framework-mini">Thought → Belief → Behavior → Action → Result</span>
+            <h1>Subconscious Alignment Protocol</h1>
+            <p class="subtitle">An 8-week structured system designed to help individuals define a clear goal, align their thinking, and execute consistently toward achieving it.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn">Apply for Cohort 1</a>
+            <span class="limit-text">Limited to 20 participants</span>
+            <div class="video-container"><p>[ Introduction Video Placeholder ]</p></div>
+        </div>
+    </section>
+
+    <section id="problem">
+        <div class="container">
+            <div class="problem-content">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Why most efforts fail.</h2>
+                    <p>Failure isn't usually a lack of intelligence or effort. It's an internal misalignment. When your thoughts, beliefs, and actions pull in different directions, results are impossible to sustain.</p>
+                </div>
+                <div>
+                    <ul class="problem-list">
+                        <li>Unclear or shifting goals</li>
+                        <li>Inconsistent daily thinking patterns</li>
+                        <li>Scattered and reactive effort</li>
+                        <li>Constant hesitation and self-doubt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="framework">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">The Alignment Framework</h2>
+                <p>The system is a linear sequence. If any step is out of alignment, the chain breaks.</p>
+            </div>
+            <div class="framework-visual">
+                <div class="step"><h3>Thought</h3><p>Repeated thoughts gradually influence and shape your belief systems.</p></div>
+                <div class="arrow">→</div>
+                <div class="step"><h3>Belief</h3><p>Your beliefs shape your automatic and subconscious behavior patterns.</p></div>
+                <div class="arrow">→</div>
+                <div class="step"><h3>Behavior</h3><p>Your behavior determines the quality and volume of your daily actions.</p></div>
+                <div class="arrow">→</div>
+                <div class="step" style="background: var(--primary-blue); color: white;">
+                    <h3 style="color: white;">Result</h3><p style="color: rgba(255,255,255,0.8);">The natural outcome of consistent alignment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem;">The 8-Week Protocol</h2>
+            <div class="week-grid">
+                <div class="week-card"><span class="week-label">Week 01</span><h3>Manifestation Reality</h3><p>Clarity on passive vs. active growth.</p></div>
+                <div class="week-card"><span class="week-label">Week 02</span><h3>Goal Construction</h3><p>Building targets the subconscious can "see".</p></div>
+                <div class="week-card"><span class="week-label">Week 03</span><h3>Thought Awareness</h3><p>Identifying the invisible scripts of resistance.</p></div>
+                <div class="week-card"><span class="week-label">Week 04</span><h3>Belief Formation</h3><p>Installing new operating beliefs.</p></div>
+                <div class="week-card"><span class="week-label">Week 05</span><h3>Behavior Alignment</h3><p>Closing the gap between intent and action.</p></div>
+                <div class="week-card"><span class="week-label">Week 06</span><h3>Maintaining Direction</h3><p>Staying aligned when excitement fades.</p></div>
+                <div class="week-card"><span class="week-label">Week 07</span><h3>Burnout & Friction</h3><p>Navigating the friction of high-level execution.</p></div>
+                <div class="week-card"><span class="week-label">Week 08</span><h3>Identity Lock</h3><p>Making the protocol permanent.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="for-who">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem;">Is this for you?</h2>
+            <div class="audience-box">
+                <div class="audience-item">
+                    <h3>The Profile</h3>
+                    <ul>
+                        <li>People with high ambition but unclear direction.</li>
+                        <li>High-achievers struggling with consistency.</li>
+                        <li>Individuals tired of overthinking.</li>
+                    </ul>
+                </div>
+                <div class="audience-item">
+                    <h3>The Professional Path</h3>
+                    <ul>
+                        <li>Aspiring entrepreneurs building their first venture.</li>
+                        <li>Corporate professionals seeking advancement.</li>
+                        <li>Creatives needing a system for output.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <div class="pricing-card">
+                <p class="future-price">Standard Enrollment: €550</p>
+                <div class="founding-price">€350</div>
+                <p style="margin: 2rem 0; font-weight: 700;">Founding Cohort Special (20 Seats)</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn" style="width: 100%;">Apply for Cohort 1</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="guarantee" style="text-align: center; background: var(--bg-soft);">
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">10-Day Refund Guarantee</h3>
+            <p style="max-width: 600px; margin: 0 auto;">If after 10 days of the program you find it isn't the right fit for your goals, we will issue a full refund. No questions asked.</p>
+        </div>
+    </section>
+
+    <footer style="padding: 4rem 0; text-align: center; border-top: 1px solid var(--border);">
+        <p>&copy; 2026 Visualizer. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
