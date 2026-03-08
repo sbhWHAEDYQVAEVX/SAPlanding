@@ -20,7 +20,6 @@
 --bg-white:#ffffff;
 --bg-soft:#f9fafb;
 --border:#e5e7eb;
---transition:all .3s cubic-bezier(.4,0,.2,1);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -30,21 +29,17 @@ font-family:'Inter',sans-serif;
 background:var(--bg-white);
 color:var(--text-black);
 line-height:1.6;
--webkit-font-smoothing:antialiased;
 }
 
 .container{
 max-width:1100px;
-margin:0 auto;
+margin:auto;
 padding:0 1.5rem;
 }
 
-section{padding:100px 0;}
+section{padding:90px 0;}
 
-h1,h2,h3{
-font-weight:700;
-letter-spacing:-0.02em;
-}
+h1,h2,h3{font-weight:700;}
 
 p{color:var(--text-gray);}
 
@@ -56,43 +51,32 @@ padding:1rem 2.5rem;
 border-radius:6px;
 text-decoration:none;
 font-weight:600;
-font-size:1.1rem;
-transition:var(--transition);
-border:2px solid var(--primary-blue);
 }
 
 .btn:hover{
 background:var(--primary-blue-hover);
-transform:translateY(-2px);
-box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
-/* Hero */
+/* HERO */
 
 #hero{
-padding-top:140px;
+padding-top:130px;
 text-align:center;
 background:radial-gradient(circle at top,#f0f4f8 0%,#ffffff 70%);
 }
 
-#hero h1{
-font-size:clamp(2.5rem,8vw,4.5rem);
-margin-bottom:1.5rem;
-}
-
 .subtitle{
 font-size:1.5rem;
-max-width:800px;
+max-width:760px;
 margin:0 auto 2rem;
 }
 
 .framework-mini{
-font-weight:600;
 color:var(--primary-blue);
-text-transform:uppercase;
-letter-spacing:.15em;
-font-size:.85rem;
-margin-bottom:2.5rem;
+font-weight:600;
+letter-spacing:.12em;
+font-size:.9rem;
+margin-bottom:2rem;
 display:block;
 }
 
@@ -109,22 +93,22 @@ width:100%;
 max-width:900px;
 aspect-ratio:16/9;
 background:black;
-margin:4rem auto 0;
-border-radius:12px;
+margin:3rem auto 0;
+border-radius:10px;
 display:flex;
 align-items:center;
 justify-content:center;
 color:white;
 }
 
-/* Problem */
+/* PROBLEM */
 
 #problem{background:var(--bg-soft);}
 
 .problem-content{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:4rem;
+gap:3rem;
 align-items:center;
 }
 
@@ -135,23 +119,22 @@ padding:1rem 0;
 border-bottom:1px solid var(--border);
 display:flex;
 align-items:center;
-font-weight:500;
 }
 
 .problem-list li::before{
 content:"✕";
-color:#ef4444;
 margin-right:1rem;
+color:#ef4444;
 font-weight:900;
 }
 
-/* Framework */
+/* FRAMEWORK */
 
 .framework-visual{
 display:flex;
-justify-content:space-between;
-margin-top:4rem;
 gap:1rem;
+margin-top:3rem;
+justify-content:space-between;
 }
 
 .step{
@@ -165,36 +148,30 @@ border-radius:8px;
 
 .step h3{
 color:var(--primary-blue);
-margin-bottom:1rem;
-text-transform:uppercase;
-font-size:1.1rem;
+margin-bottom:.5rem;
 }
 
 .arrow{
 display:flex;
 align-items:center;
-padding-top:2.5rem;
-color:var(--border);
 font-size:1.5rem;
+color:#ccc;
 }
 
-/* Weeks */
+/* WEEKS */
 
-#overview{
-background:#111;
-color:white;
-}
+#overview{background:#111;color:white;}
 
 .week-grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
 gap:1.5rem;
 margin-top:3rem;
 }
 
 .week-card{
 padding:2rem;
-border:1px solid rgba(255,255,255,0.1);
+border:1px solid rgba(255,255,255,.1);
 border-radius:8px;
 }
 
@@ -203,11 +180,35 @@ font-size:.75rem;
 font-weight:700;
 color:#3b82f6;
 text-transform:uppercase;
-margin-bottom:.5rem;
-display:block;
 }
 
-/* Audience */
+/* TRANSFORMATION */
+
+#transformation{
+background:var(--bg-soft);
+}
+
+.transform-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+margin-top:3rem;
+}
+
+.transform-box{
+background:white;
+padding:2rem;
+border-radius:8px;
+border:1px solid var(--border);
+}
+
+.transform-box ul{list-style:none;margin-top:1rem;}
+
+.transform-box li{
+margin-bottom:.7rem;
+}
+
+/* AUDIENCE */
 
 .audience-box{
 display:grid;
@@ -217,16 +218,16 @@ margin-top:3rem;
 }
 
 .audience-item{
-padding:2rem;
 background:var(--bg-soft);
-border-radius:12px;
+padding:2rem;
+border-radius:10px;
 }
 
 .audience-item ul{list-style:none;margin-top:1rem;}
 
 .audience-item li{
-margin-bottom:.75rem;
-padding-left:1.5rem;
+margin-bottom:.7rem;
+padding-left:1rem;
 position:relative;
 }
 
@@ -237,13 +238,13 @@ left:0;
 color:var(--primary-blue);
 }
 
-/* Pricing */
+/* PRICING */
 
 .pricing-card{
-max-width:500px;
-margin:0 auto;
+max-width:480px;
+margin:auto;
 text-align:center;
-padding:4rem 2rem;
+padding:3rem 2rem;
 border:2px solid var(--primary-blue);
 border-radius:16px;
 }
@@ -257,22 +258,21 @@ color:var(--primary-blue);
 .future-price{
 text-decoration:line-through;
 color:var(--text-gray);
-font-size:1.2rem;
-margin-bottom:1rem;
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
 .problem-content,
-.audience-box{grid-template-columns:1fr;}
+.transform-grid,
+.audience-box{
+grid-template-columns:1fr;
+}
 
-.framework-visual{flex-direction:column;}
+.framework-visual{
+flex-direction:column;
+}
 
 .arrow{display:none;}
-
-section{padding:60px 0;}
 
 }
 
@@ -282,6 +282,7 @@ section{padding:60px 0;}
 <body>
 
 <section id="hero">
+
 <div class="container">
 
 <span class="framework-mini">Thought → Belief → Behavior → Action → Result</span>
@@ -289,7 +290,7 @@ section{padding:60px 0;}
 <h1>Subconscious Alignment Protocol</h1>
 
 <p class="subtitle">
-An 8-week structured system that helps you define a clear goal, align your thinking, and execute consistently until it is achieved.
+The program helps people understand how goals are actually achieved and provides a structured system for turning intention into consistent action.
 </p>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn">Apply for Cohort 1</a>
@@ -301,6 +302,7 @@ An 8-week structured system that helps you define a clear goal, align your think
 </div>
 
 </div>
+
 </section>
 
 <section id="problem">
@@ -311,11 +313,11 @@ An 8-week structured system that helps you define a clear goal, align your think
 
 <div>
 
-<h2 style="font-size:2.5rem;margin-bottom:1.5rem;">Why most efforts fail.</h2>
+<h2>Why most efforts fail</h2>
 
 <p>
-Failure is rarely a lack of intelligence or effort. It is usually an internal misalignment.
-When thoughts, beliefs, and actions move in different directions, progress becomes difficult to sustain.
+Most people do not fail because of a lack of intelligence or effort.
+They struggle because their thinking, beliefs, and actions are not aligned toward a clear goal.
 </p>
 
 </div>
@@ -324,10 +326,10 @@ When thoughts, beliefs, and actions move in different directions, progress becom
 
 <ul class="problem-list">
 
-<li>Unclear or shifting goals</li>
-<li>Inconsistent thinking patterns</li>
+<li>Unclear direction</li>
 <li>Scattered effort</li>
-<li>Hesitation and self-doubt</li>
+<li>Inconsistent habits</li>
+<li>Hesitation and overthinking</li>
 
 </ul>
 
@@ -343,50 +345,19 @@ When thoughts, beliefs, and actions move in different directions, progress becom
 
 <div class="container">
 
-<div style="text-align:center;max-width:700px;margin:0 auto;">
-
-<h2 style="font-size:2.5rem;margin-bottom:1rem;">The Alignment Framework</h2>
-
-<p>The system follows a clear sequence. When these elements align, progress becomes consistent.</p>
-
-</div>
+<h2 style="text-align:center;">The Alignment Framework</h2>
 
 <div class="framework-visual">
 
-<div class="step">
-<h3>Thought</h3>
-<p>Repeated thoughts gradually shape belief systems.</p>
-</div>
-
+<div class="step"><h3>Thought</h3><p>Repeated thoughts shape belief systems.</p></div>
 <div class="arrow">→</div>
-
-<div class="step">
-<h3>Belief</h3>
-<p>Beliefs influence how you interpret situations and opportunities.</p>
-</div>
-
+<div class="step"><h3>Belief</h3><p>Beliefs influence how situations are interpreted.</p></div>
 <div class="arrow">→</div>
-
-<div class="step">
-<h3>Behavior</h3>
-<p>Beliefs shape the habits and behaviors you display each day.</p>
-</div>
-
+<div class="step"><h3>Behavior</h3><p>Beliefs shape daily behavior patterns.</p></div>
 <div class="arrow">→</div>
-
-<div class="step">
-<h3>Action</h3>
-<p>Consistent action moves you toward a defined goal.</p>
-</div>
-
+<div class="step"><h3>Action</h3><p>Consistent action moves you toward goals.</p></div>
 <div class="arrow">→</div>
-
-<div class="step" style="background:var(--primary-blue);color:white;">
-<h3 style="color:white;">Result</h3>
-<p style="color:rgba(255,255,255,0.8);">
-Results emerge from sustained aligned action.
-</p>
-</div>
+<div class="step" style="background:var(--primary-blue);color:white;"><h3 style="color:white;">Result</h3><p style="color:white;">Results follow sustained aligned action.</p></div>
 
 </div>
 
@@ -398,56 +369,96 @@ Results emerge from sustained aligned action.
 
 <div class="container">
 
-<h2 style="text-align:center;font-size:2.5rem;">The 8-Week Protocol</h2>
+<h2 style="text-align:center;">The 8-Week Protocol</h2>
 
 <div class="week-grid">
 
 <div class="week-card">
 <span class="week-label">Week 01</span>
-<h3>Manifestation vs Action</h3>
-<p>Understanding why results come from disciplined action rather than passive thinking.</p>
+<h3>The Truth About Manifestation</h3>
+<p>Understanding why manifestation is often misunderstood and why results come from disciplined action.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 02</span>
 <h3>Goal Construction</h3>
-<p>Defining a clear measurable goal the mind can focus on.</p>
+<p>Defining a clear goal the mind can focus on.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 03</span>
 <h3>Thought Awareness</h3>
-<p>Recognizing internal dialogue and its influence on belief.</p>
+<p>Recognizing internal dialogue.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 04</span>
 <h3>Belief Formation</h3>
-<p>Understanding how repeated thoughts shape belief systems.</p>
+<p>Understanding how belief systems develop.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 05</span>
 <h3>Behavior Alignment</h3>
-<p>Aligning daily behavior with the goal you defined.</p>
+<p>Aligning habits with your goal.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 06</span>
 <h3>Maintaining Direction</h3>
-<p>Staying consistent even when motivation fluctuates.</p>
+<p>Maintaining focus and consistency.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 07</span>
 <h3>Resistance and Friction</h3>
-<p>Managing doubt, frustration, and setbacks.</p>
+<p>Managing doubt and setbacks.</p>
 </div>
 
 <div class="week-card">
 <span class="week-label">Week 08</span>
 <h3>Identity Alignment</h3>
-<p>Integrating the framework into how you think and operate long-term.</p>
+<p>Integrating the framework long-term.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="transformation">
+
+<div class="container">
+
+<h2 style="text-align:center;">Typical Participant Transformation</h2>
+
+<div class="transform-grid">
+
+<div class="transform-box">
+
+<h3>Before</h3>
+
+<ul>
+<li>Confusion about direction</li>
+<li>Scattered goals</li>
+<li>Inconsistent habits</li>
+<li>Energy spread across multiple pursuits</li>
+</ul>
+
+</div>
+
+<div class="transform-box">
+
+<h3>After</h3>
+
+<ul>
+<li>A clearly defined goal</li>
+<li>Clarity about the path forward</li>
+<li>Improved habits and behavior</li>
+<li>Consistent action toward one objective</li>
+</ul>
+
 </div>
 
 </div>
@@ -460,7 +471,7 @@ Results emerge from sustained aligned action.
 
 <div class="container">
 
-<h2 style="text-align:center;font-size:2.5rem;">Is this for you?</h2>
+<h2 style="text-align:center;">Who This Is For</h2>
 
 <div class="audience-box">
 
@@ -469,9 +480,9 @@ Results emerge from sustained aligned action.
 <h3>The Profile</h3>
 
 <ul>
-<li>Ambitious people lacking clear direction</li>
-<li>High-achievers struggling with consistency</li>
-<li>Individuals tired of overthinking</li>
+<li>Ambitious individuals lacking direction</li>
+<li>People struggling with consistency</li>
+<li>Those interested in personal development</li>
 </ul>
 
 </div>
@@ -483,7 +494,7 @@ Results emerge from sustained aligned action.
 <ul>
 <li>Aspiring entrepreneurs</li>
 <li>Professionals seeking advancement</li>
-<li>Creatives needing structured output</li>
+<li>Creatives seeking structure</li>
 </ul>
 
 </div>
@@ -522,7 +533,7 @@ Apply for Cohort 1
 
 <h3 style="margin-bottom:1rem;">10-Day Refund Guarantee</h3>
 
-<p style="max-width:600px;margin:0 auto;">
+<p style="max-width:600px;margin:auto;">
 If after 10 days the program is not the right fit for your goals, we will issue a full refund.
 </p>
 
