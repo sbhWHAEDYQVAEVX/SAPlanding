@@ -4,607 +4,807 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subconscious Alignment Protocol | 8-Week Program</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
-:root{
---primary-blue:#003366;
---primary-blue-hover:#002244;
---text-black:#111111;
---text-gray:#4b5563;
---bg-white:#ffffff;
---bg-soft:#f9fafb;
---border:#e5e7eb;
+:root {
+  --ink:        #1c1c1c;
+  --ink-soft:   #444444;
+  --muted:      #888888;
+  --accent:     #2f5fad;
+  --accent-lt:  #e8eef9;
+  --success:    #3a8a5a;
+  --danger:     #c94a4a;
+  --bg:         #ffffff;
+  --bg-off:     #f7f8fa;
+  --bg-warm:    #f4f2ee;
+  --border:     #e6e6e6;
+  --radius:     10px;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-body{
-font-family:'Inter',sans-serif;
-background:var(--bg-white);
-color:var(--text-black);
-line-height:1.6;
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 1.5rem;
+h1, h2, h3 {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-section{padding:90px 0;}
+p { color: var(--ink-soft); }
+a { text-decoration: none; }
 
-h1,h2,h3{font-weight:700;}
-
-p{color:var(--text-gray);}
-
-.btn{
-display:inline-block;
-background:var(--primary-blue);
-color:white;
-padding:1rem 2.5rem;
-border-radius:6px;
-text-decoration:none;
-font-weight:600;
+.eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
 
-.btn:hover{
-background:var(--primary-blue-hover);
+.container { max-width: 1060px; margin: auto; padding: 0 2rem; }
+section { padding: 100px 0; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.nav-logo span { color: var(--accent); }
+.nav-btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.nav-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── HERO ── */
+#hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: var(--bg-warm);
+  position: relative;
+  overflow: hidden;
+}
+.hero-ring {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(47,95,173,0.08);
+  top: -200px; right: -200px;
+  pointer-events: none;
+}
+.hero-ring-2 {
+  width: 400px; height: 400px;
+  top: -100px; right: -100px;
+  border-color: rgba(47,95,173,0.05);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-left {}
+.chain-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+.chain-word {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.55;
+}
+.chain-word.active { opacity: 1; }
+.chain-arrow { color: var(--accent); opacity: 0.3; font-size: 0.75rem; }
+
+#hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+#hero h1 em { font-style: italic; color: var(--accent); }
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  max-width: 460px;
+}
+.hero-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.btn-main {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.95rem 2.4rem;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-main:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(47,95,173,0.2); }
+.scarcity { font-size: 0.78rem; font-weight: 600; color: var(--danger); }
+
+.hero-right {}
+.video-box {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+.play-ring {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+.play-ring:hover { background: var(--accent-lt); transform: scale(1.08); }
+.play-ring svg { width: 20px; height: 20px; fill: var(--accent); margin-left: 3px; }
+.video-box p { font-size: 0.8rem; color: var(--muted); }
+
+/* ── STATS ── */
+.stats-strip {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-strip .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.stat-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-n {
+  font-family: 'Lora', serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-l { font-size: 0.78rem; color: var(--muted); }
+
+/* ── PROBLEM ── */
+#problem { background: var(--bg); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+#problem h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 1.25rem; }
+#problem .intro-p { margin-bottom: 1rem; }
+.friction-list { list-style: none; margin-top: 1.5rem; }
+.friction-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.friction-list li:last-child { border-bottom: none; }
+.x-dot {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fdecea;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+  color: var(--danger);
+  margin-top: 2px;
 }
 
-/* HERO */
-
-#hero{
-padding-top:130px;
-text-align:center;
-background:radial-gradient(circle at top,#f0f4f8 0%,#ffffff 70%);
+/* ── FRAMEWORK ── */
+#framework { background: var(--bg-off); }
+#framework h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 0.75rem; }
+#framework > .container > p { max-width: 500px; margin-bottom: 3rem; }
+.fw-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
 }
-
-.subtitle{
-font-size:1.5rem;
-max-width:760px;
-margin:0 auto 2rem;
+.fw-card {
+  background: var(--bg);
+  padding: 2rem 1.5rem;
+  transition: background 0.25s;
 }
-
-.framework-mini{
-color:var(--primary-blue);
-font-weight:600;
-letter-spacing:.12em;
-font-size:.9rem;
-margin-bottom:2rem;
-display:block;
+.fw-card:last-child { background: var(--accent); }
+.fw-card:not(:last-child):hover { background: var(--accent-lt); }
+.fw-n {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 1rem;
 }
+.fw-card:last-child .fw-n { color: rgba(255,255,255,0.6); }
+.fw-card h3 { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 0.5rem; }
+.fw-card:last-child h3 { color: #fff; }
+.fw-card p { font-size: 0.8rem; line-height: 1.65; }
+.fw-card:last-child p { color: rgba(255,255,255,0.7); }
 
-.limit-text{
-display:block;
-margin-top:1rem;
-font-size:.9rem;
-color:#ef4444;
-font-weight:600;
+/* ── WEEKS ── */
+#overview { background: var(--bg); }
+#overview h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 0.75rem; }
+#overview > .container > p { max-width: 500px; margin-bottom: 3rem; }
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
-
-.video-container{
-width:100%;
-max-width:900px;
-aspect-ratio:16/9;
-background:black;
-margin:3rem auto 0;
-border-radius:10px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
+.wk {
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  position: relative;
 }
-
-/* PROBLEM */
-
-#problem{background:var(--bg-soft);}
-
-.problem-content{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:3rem;
-align-items:center;
+.wk:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(47,95,173,0.08); }
+.wk-num {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  opacity: 0.55;
+  display: block;
+  margin-bottom: 0.75rem;
 }
+.wk h3 { font-family: 'Lora', serif; font-size: 0.98rem; margin-bottom: 0.5rem; line-height: 1.35; }
+.wk p { font-size: 0.78rem; line-height: 1.65; }
 
-.problem-list{list-style:none;margin-top:2rem;}
-
-.problem-list li{
-padding:1rem 0;
-border-bottom:1px solid var(--border);
-display:flex;
-align-items:center;
+/* ── TRANSFORMATION ── */
+#transformation { background: var(--bg-warm); }
+#transformation h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 0.75rem; }
+#transformation > .container > p { max-width: 500px; margin-bottom: 3rem; }
+.tx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.tx-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
 }
-
-.problem-list li::before{
-content:"✕";
-margin-right:1rem;
-color:#ef4444;
-font-weight:900;
+.tx-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
 }
-
-/* FRAMEWORK */
-
-.framework-visual{
-display:flex;
-gap:1rem;
-margin-top:3rem;
-justify-content:space-between;
+.tx-box.bef .tx-label { color: var(--danger); }
+.tx-box.aft .tx-label { color: var(--success); }
+.dot-sm {
+  width: 7px; height: 7px;
+  border-radius: 50%;
 }
-
-.step{
-flex:1;
-text-align:center;
-padding:2rem 1rem;
-background:white;
-border:1px solid var(--border);
-border-radius:8px;
+.bef .dot-sm { background: var(--danger); }
+.aft .dot-sm { background: var(--success); }
+.tx-box ul { list-style: none; }
+.tx-box li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
+.tx-box li:last-child { border-bottom: none; }
+.li-sym { flex-shrink: 0; font-size: 0.75rem; margin-top: 2px; }
+.bef .li-sym { color: var(--danger); }
+.aft .li-sym { color: var(--success); }
 
-.step h3{
-color:var(--primary-blue);
-margin-bottom:.5rem;
+/* ── WHO ── */
+#for-who { background: var(--bg); }
+#for-who h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 0.75rem; }
+#for-who > .container > p { max-width: 500px; margin-bottom: 3rem; }
+.who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.who-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: border-color 0.25s;
 }
-
-.arrow{
-display:flex;
-align-items:center;
-font-size:1.5rem;
-color:#ccc;
+.who-card:hover { border-color: var(--accent); }
+.who-icon {
+  width: 42px; height: 42px;
+  border-radius: 9px;
+  background: var(--accent-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
 }
+.who-card h3 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 0.6rem; }
+.who-card p { font-size: 0.83rem; line-height: 1.75; }
 
-/* WEEKS */
-
-#overview{background:#111;color:white;}
-
-.week-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-gap:1.5rem;
-margin-top:3rem;
+/* ── PRICING ── */
+#pricing { background: var(--bg-off); }
+.px-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.px-left h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); margin-bottom: 1rem; }
+.px-left p { margin-bottom: 1.5rem; }
+.inc-list { list-style: none; }
+.inc-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
+.inc-list li:last-child { border-bottom: none; }
+.ck { color: var(--success); font-size: 0.8rem; }
 
-.week-card{
-padding:2rem;
-border:1px solid rgba(255,255,255,.1);
-border-radius:8px;
+.px-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.75rem 2.25rem;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+  position: relative;
 }
-
-.week-label{
-font-size:.75rem;
-font-weight:700;
-color:#3b82f6;
-text-transform:uppercase;
+.cohort-tag {
+  display: inline-block;
+  background: var(--accent-lt);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
 }
+.was { font-size: 0.9rem; color: var(--muted); text-decoration: line-through; margin-bottom: 0.4rem; }
+.price-big { font-family: 'Lora', serif; font-size: 4.2rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+.price-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 2rem; }
+.btn-main.block { display: block; text-align: center; margin-bottom: 1rem; }
+.guar-note { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
 
-/* TRANSFORMATION */
-
-#transformation{
-background:var(--bg-soft);
+/* ── GUARANTEE ── */
+#guarantee { background: var(--bg); padding: 60px 0; }
+.guar-box {
+  max-width: 540px;
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background: var(--bg-warm);
 }
+.guar-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+#guarantee h3 { font-family: 'Lora', serif; font-size: 1.55rem; margin-bottom: 0.85rem; }
+#guarantee p { font-size: 0.88rem; line-height: 1.8; }
 
-.transform-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:3rem;
-margin-top:3rem;
+/* ── FAQ ── */
+#faq { background: var(--bg-off); }
+#faq h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 3rem; text-align: center; }
+.faq-wrap { max-width: 660px; margin: auto; }
+.fq {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
 }
-
-.transform-box{
-background:white;
-padding:2rem;
-border-radius:8px;
-border:1px solid var(--border);
+.fq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 0;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--ink);
+  gap: 1rem;
 }
-
-.transform-box ul{list-style:none;margin-top:1rem;}
-
-.transform-box li{
-margin-bottom:.7rem;
+.fq-ico {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  color: var(--accent);
+  transition: transform 0.3s;
 }
-
-/* AUDIENCE */
-
-.audience-box{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:2rem;
-margin-top:3rem;
+.fq.open .fq-ico { transform: rotate(45deg); }
+.fq-a {
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
 }
+.fq.open .fq-a { max-height: 220px; padding-bottom: 1.25rem; }
 
-.audience-item{
-background:var(--bg-soft);
-padding:2rem;
-border-radius:10px;
+/* ── FOOTER ── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0;
 }
-
-.audience-item ul{list-style:none;margin-top:1rem;}
-
-.audience-item li{
-margin-bottom:.7rem;
-padding-left:1rem;
-position:relative;
+.foot-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
-
-.audience-item li::before{
-content:"→";
-position:absolute;
-left:0;
-color:var(--primary-blue);
+.foot-logo { font-family: 'Lora', serif; font-size: 1rem; }
+.foot-logo span { color: var(--accent); }
+.foot-copy { font-size: 0.78rem; color: var(--muted); }
+.soc-row { display: flex; gap: 0.65rem; }
+.soc-a {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
 }
+.soc-a:hover { border-color: var(--accent); color: var(--accent); }
+.soc-a svg { width: 15px; height: 15px; fill: currentColor; }
 
-/* PRICING */
-
-.pricing-card{
-max-width:480px;
-margin:auto;
-text-align:center;
-padding:3rem 2rem;
-border:2px solid var(--primary-blue);
-border-radius:16px;
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
+.reveal.in { opacity: 1; transform: translateY(0); }
 
-.founding-price{
-font-size:4rem;
-font-weight:800;
-color:var(--primary-blue);
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .week-grid { grid-template-columns: repeat(2, 1fr); }
+  .fw-row { grid-template-columns: 1fr 1fr; }
+  .fw-card:last-child { grid-column: span 2; }
 }
-
-.future-price{
-text-decoration:line-through;
-color:var(--text-gray);
+@media (max-width: 680px) {
+  .hero-inner, .two-col, .tx-grid, .px-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .stats-strip .container { flex-wrap: wrap; justify-content: center; }
+  .stat-cell { border-right: 1px solid var(--border); padding: 0.75rem 1rem; }
+  .fw-row, .who-grid { grid-template-columns: 1fr; }
+  .fw-card:last-child, .who-card:last-child { grid-column: unset; }
+  .week-grid { grid-template-columns: 1fr; }
+  .foot-inner { flex-direction: column; text-align: center; }
 }
-
-/* SOCIAL DOCK STYLES */
-.social-dock {
-position: fixed;
-bottom: 2rem;
-left: 2rem;
-display: flex;
-flex-direction: column;
-gap: 0.8rem;
-z-index: 1000;
-}
-
-.social-link {
-width: 44px;
-height: 44px;
-background: white;
-border: 1px solid var(--border);
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-color: var(--text-black);
-transition: all 0.3s ease;
-box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-text-decoration: none;
-}
-
-.social-link:hover {
-transform: translateY(-3px);
-border-color: var(--primary-blue);
-color: var(--primary-blue);
-box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.social-link svg {
-width: 20px;
-height: 20px;
-fill: currentColor;
-}
-
-@media(max-width:768px){
-
-.problem-content,
-.transform-grid,
-.audience-box{
-grid-template-columns:1fr;
-}
-
-.framework-visual{
-flex-direction:column;
-}
-
-.arrow{display:none;}
-
-.social-dock {
-bottom: 1.5rem;
-left: 1.5rem;
-}
-
-.social-link {
-width: 40px;
-height: 40px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- Social Media Icons (Bottom Left) -->
-<div class="social-dock">
-    <a href="https://x.com/Visyualizer" class="social-link" target="_blank" aria-label="X (Twitter)">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/visyualizer?igsh=eTUwYWxnODRtaXE4&utm_source=qr" class="social-link" target="_blank" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Visyual<span>izer</span></div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="nav-btn">Apply — €350</a>
+</nav>
 
+<!-- HERO -->
 <section id="hero">
-
-<div class="container">
-
-<span class="framework-mini">Thought → Belief → Behavior → Action → Result</span>
-
-<h1>Subconscious Alignment Protocol</h1>
-
-<p class="subtitle">
-The program helps people understand how goals are actually achieved and provides a structured system for turning intention into consistent action.
-</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn">Apply for Cohort 1</a>
-
-<span class="limit-text">Limited to 20 participants</span>
-
-<div class="video-container">
-<p>[ Introduction Video Placeholder ]</p>
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="hero-ring"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="chain-bar">
+          <span class="chain-word active">Thought</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-word active">Belief</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-word active">Behavior</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-word active">Action</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-word active">Result</span>
+        </div>
+        <h1>The <em>Subconscious</em><br>Alignment Protocol</h1>
+        <p class="hero-desc">An 8-week program that closes the gap between your goals and your daily reality — by aligning the beliefs, behaviors, and habits that quietly govern every decision you make.</p>
+        <div class="hero-cta-row">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn-main">Apply for Cohort 1</a>
+          <span class="scarcity">⚠ Limited to 20 participants · Founding price €350</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="video-box">
+          <div class="play-ring">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <p>Introduction video coming soon</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat-cell"><span class="stat-n">8</span><span class="stat-l">Week Program</span></div>
+    <div class="stat-cell"><span class="stat-n">20</span><span class="stat-l">Seats Available</span></div>
+    <div class="stat-cell"><span class="stat-n">10</span><span class="stat-l">Day Refund Window</span></div>
+    <div class="stat-cell"><span class="stat-n">€350</span><span class="stat-l">Founding Price</span></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
 <section id="problem">
-
-<div class="container">
-
-<div class="problem-content">
-
-<div>
-
-<h2>Why most efforts fail</h2>
-
-<p>
-Most people do not fail because of a lack of intelligence or effort.
-They struggle because their thinking, beliefs, and actions are not aligned toward a clear goal.
-</p>
-
-</div>
-
-<div>
-
-<ul class="problem-list">
-
-<li>Unclear direction</li>
-<li>Scattered effort</li>
-<li>Inconsistent habits</li>
-<li>Hesitation and overthinking</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <span class="eyebrow">The Real Problem</span>
+        <h2>You're not failing from lack of effort.</h2>
+        <p class="intro-p">Most people work hard. They set goals, try new routines, consume more content. And still nothing sticks. The issue isn't discipline — it's misalignment between what you consciously want and what your subconscious quietly drives.</p>
+        <p>This program is built to close that gap, systematically.</p>
+      </div>
+      <div class="reveal">
+        <ul class="friction-list">
+          <li><span class="x-dot">✕</span>You start strong but can't sustain momentum</li>
+          <li><span class="x-dot">✕</span>Your goals feel clear but your actions say otherwise</li>
+          <li><span class="x-dot">✕</span>You overthink, hesitate, and second-guess yourself</li>
+          <li><span class="x-dot">✕</span>Your energy is spread across too many pursuits</li>
+          <li><span class="x-dot">✕</span>You know what to do — but you don't consistently do it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- FRAMEWORK -->
 <section id="framework">
-
-<div class="container">
-
-<h2 style="text-align:center;">The Alignment Framework</h2>
-
-<div class="framework-visual">
-
-<div class="step"><h3>Thought</h3><p>Repeated thoughts shape belief systems.</p></div>
-<div class="arrow">→</div>
-<div class="step"><h3>Belief</h3><p>Beliefs influence how situations are interpreted.</p></div>
-<div class="arrow">→</div>
-<div class="step"><h3>Behavior</h3><p>Beliefs shape daily behavior patterns.</p></div>
-<div class="arrow">→</div>
-<div class="step"><h3>Action</h3><p>Consistent action moves you toward goals.</p></div>
-<div class="arrow">→</div>
-<div class="step" style="background:var(--primary-blue);color:white;"><h3 style="color:white;">Result</h3><p style="color:white;">Results follow sustained aligned action.</p></div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="eyebrow">The Method</span>
+    <h2>A five-stage alignment chain.</h2>
+    <p>Every result in your life traces back to this sequence. The protocol works by intervening at each stage.</p>
+    <div class="fw-row reveal">
+      <div class="fw-card"><span class="fw-n">01</span><h3>Thought</h3><p>Repeated thoughts lay the foundation for every belief you hold.</p></div>
+      <div class="fw-card"><span class="fw-n">02</span><h3>Belief</h3><p>Beliefs filter how you interpret situations and what you think is possible.</p></div>
+      <div class="fw-card"><span class="fw-n">03</span><h3>Behavior</h3><p>Beliefs quietly shape your habits, routines, and daily patterns.</p></div>
+      <div class="fw-card"><span class="fw-n">04</span><h3>Action</h3><p>Aligned behavior produces consistent, directed action over time.</p></div>
+      <div class="fw-card"><span class="fw-n">05</span><h3>Result</h3><p>Results are the inevitable output of a fully aligned system.</p></div>
+    </div>
+  </div>
 </section>
 
+<!-- WEEKS -->
 <section id="overview">
-
-<div class="container">
-
-<h2 style="text-align:center;">The 8-Week Protocol</h2>
-
-<div class="week-grid">
-
-<div class="week-card">
-<span class="week-label">Week 01</span>
-<h3>The Truth About Manifestation</h3>
-<p>Understanding why manifestation is often misunderstood and why results come from disciplined action.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 02</span>
-<h3>Goal Construction</h3>
-<p>Defining a clear goal the mind can focus on.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 03</span>
-<h3>Thought Awareness</h3>
-<p>Recognizing internal dialogue.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 04</span>
-<h3>Belief Formation</h3>
-<p>Understanding how belief systems develop.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 05</span>
-<h3>Behavior Alignment</h3>
-<p>Aligning habits with your goal.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 06</span>
-<h3>Maintaining Direction</h3>
-<p>Maintaining focus and consistency.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 07</span>
-<h3>Resistance and Friction</h3>
-<p>Managing doubt and setbacks.</p>
-</div>
-
-<div class="week-card">
-<span class="week-label">Week 08</span>
-<h3>Identity Alignment</h3>
-<p>Integrating the framework long-term.</p>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="eyebrow">The Curriculum</span>
+    <h2>8 weeks. One objective.</h2>
+    <p>Each module builds on the last — from foundational clarity through to lasting identity change.</p>
+    <div class="week-grid">
+      <div class="wk reveal"><span class="wk-num">Week 01</span><h3>The Truth About Manifestation</h3><p>Why most people misunderstand how goals are achieved — and what actually drives results.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 02</span><h3>Goal Construction</h3><p>Building a goal with enough precision that your mind can lock onto it.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 03</span><h3>Thought Awareness</h3><p>Learning to observe your internal dialogue before it shapes your reality.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 04</span><h3>Belief Formation</h3><p>Understanding where your core beliefs came from — and how to change them.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 05</span><h3>Behavior Alignment</h3><p>Restructuring daily habits around a single, clearly defined objective.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 06</span><h3>Maintaining Direction</h3><p>Systems and frameworks for staying on course when motivation fades.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 07</span><h3>Resistance &amp; Friction</h3><p>Working through doubt, setbacks, and the pull of old patterns.</p></div>
+      <div class="wk reveal"><span class="wk-num">Week 08</span><h3>Identity Alignment</h3><p>Becoming the kind of person who naturally produces the results you want.</p></div>
+    </div>
+  </div>
 </section>
 
+<!-- TRANSFORMATION -->
 <section id="transformation">
-
-<div class="container">
-
-<h2 style="text-align:center;">Typical Participant Transformation</h2>
-
-<div class="transform-grid">
-
-<div class="transform-box">
-
-<h3>Before</h3>
-
-<ul>
-<li>Confusion about direction</li>
-<li>Scattered goals</li>
-<li>Inconsistent habits</li>
-<li>Energy spread across multiple pursuits</li>
-</ul>
-
-</div>
-
-<div class="transform-box">
-
-<h3>After</h3>
-
-<ul>
-<li>A clearly defined goal</li>
-<li>Clarity about the path forward</li>
-<li>Improved habits and behavior</li>
-<li>Consistent action toward one objective</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="eyebrow">The Shift</span>
+    <h2>What participants typically experience.</h2>
+    <p>Not overnight. But over 8 disciplined, structured weeks.</p>
+    <div class="tx-grid reveal">
+      <div class="tx-box bef">
+        <div class="tx-label"><span class="dot-sm"></span>Before</div>
+        <ul>
+          <li><span class="li-sym">✕</span>Confusion about direction and priorities</li>
+          <li><span class="li-sym">✕</span>Goals that reset every few weeks</li>
+          <li><span class="li-sym">✕</span>Habits that don't reflect what you actually want</li>
+          <li><span class="li-sym">✕</span>Energy scattered across too many things</li>
+          <li><span class="li-sym">✕</span>Knowing what to do, but not consistently doing it</li>
+        </ul>
+      </div>
+      <div class="tx-box aft">
+        <div class="tx-label"><span class="dot-sm"></span>After</div>
+        <ul>
+          <li><span class="li-sym">✓</span>A clearly defined goal and a path to reach it</li>
+          <li><span class="li-sym">✓</span>Beliefs and behaviors that support your objective</li>
+          <li><span class="li-sym">✓</span>Habits that compound rather than reset</li>
+          <li><span class="li-sym">✓</span>A single, focused pursuit with real momentum</li>
+          <li><span class="li-sym">✓</span>A framework you can apply to any goal, for life</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- WHO -->
 <section id="for-who">
-
-<div class="container">
-
-<h2 style="text-align:center;">Who This Is For</h2>
-
-<div class="audience-box">
-
-<div class="audience-item">
-
-<h3>The Profile</h3>
-
-<ul>
-<li>Ambitious individuals lacking direction</li>
-<li>People struggling with consistency</li>
-<li>Those interested in personal development</li>
-</ul>
-
-</div>
-
-<div class="audience-item">
-
-<h3>The Professional Path</h3>
-
-<ul>
-<li>Aspiring entrepreneurs</li>
-<li>Professionals seeking advancement</li>
-<li>Creatives seeking structure</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <span class="eyebrow">Who This Is For</span>
+    <h2>Built for people who are ready to work.</h2>
+    <p>Not a passive course. A structured system for those serious about change.</p>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <div class="who-icon">🎯</div>
+        <h3>The Ambitious but Scattered</h3>
+        <p>Big goals, no consistent follow-through. You need a system, not more inspiration.</p>
+      </div>
+      <div class="who-card reveal">
+        <div class="who-icon">🔁</div>
+        <h3>The Chronic Restarter</h3>
+        <p>You start well, fall off, and restart. The issue isn't willpower — it's belief-level misalignment.</p>
+      </div>
+      <div class="who-card reveal">
+        <div class="who-icon">🚀</div>
+        <h3>Entrepreneurs &amp; Creatives</h3>
+        <p>Building something requires a mind that works with you, not against you. Structure your internal environment.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- PRICING -->
 <section id="pricing">
-
-<div class="container">
-
-<div class="pricing-card">
-
-<p class="future-price">Standard Enrollment €550</p>
-
-<div class="founding-price">€350</div>
-
-<p style="margin:2rem 0;font-weight:700;">Founding Cohort (20 Seats)</p>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn" style="width:100%;">
-Apply for Cohort 1
-</a>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="px-grid">
+      <div class="px-left reveal">
+        <span class="eyebrow">Investment</span>
+        <h2>Founding cohort pricing. First 20 only.</h2>
+        <p>This is the lowest this program will ever be offered. Cohort 1 participants get direct access at founding price — and help shape the program with their feedback.</p>
+        <ul class="inc-list">
+          <li><span class="ck">✓</span>8 weeks of structured curriculum</li>
+          <li><span class="ck">✓</span>Weekly frameworks and exercises</li>
+          <li><span class="ck">✓</span>Direct access to the program creator</li>
+          <li><span class="ck">✓</span>Private cohort community</li>
+          <li><span class="ck">✓</span>Lifetime access to your cohort materials</li>
+          <li><span class="ck">✓</span>10-day full refund guarantee</li>
+        </ul>
+      </div>
+      <div class="px-card reveal">
+        <div class="cohort-tag">Cohort 1 — 20 Seats</div>
+        <p class="was">€550 standard enrollment</p>
+        <div class="price-big">€350</div>
+        <p class="price-sub">One-time · No subscription</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSedkU6qckyZvvtCl0XBGBfqFFBd3m6l5CEzVot_PfFQ-6_blg/viewform" class="btn-main block">Apply for Cohort 1</a>
+        <p class="guar-note">🛡 10-day full refund — no questions asked</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="guarantee" style="text-align:center;background:var(--bg-soft);">
-
-<div class="container">
-
-<h3 style="margin-bottom:1rem;">10-Day Refund Guarantee</h3>
-
-<p style="max-width:600px;margin:auto;">
-If after 10 days the program is not the right fit for your goals, we will issue a full refund.
-</p>
-
-</div>
-
+<!-- GUARANTEE -->
+<section id="guarantee">
+  <div class="container">
+    <div class="guar-box reveal">
+      <span class="guar-icon">🛡</span>
+      <h3>10-Day Refund Guarantee</h3>
+      <p>Start the program risk-free. If within the first 10 days you feel it isn't right for your goals, we'll issue a full refund — no conditions, no questions.</p>
+    </div>
+  </div>
 </section>
 
-<footer style="padding:4rem 0;text-align:center;border-top:1px solid var(--border);">
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h2>Frequently Asked</h2>
+    <div class="faq-wrap">
+      <div class="fq">
+        <div class="fq-q">What format does the program take? <span class="fq-ico">+</span></div>
+        <div class="fq-a">The program is delivered weekly over 8 weeks. Each module includes structured content, frameworks, and exercises to apply immediately. Full delivery details are shared with accepted participants.</div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">How much time per week does this require? <span class="fq-ico">+</span></div>
+        <div class="fq-a">Expect to invest 3–5 hours per week — a mix of learning, reflection, and implementing the exercises. This is a working program, not a passive course.</div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">Is this a group or individual experience? <span class="fq-ico">+</span></div>
+        <div class="fq-a">Cohort 1 is intentionally small — 20 participants. This allows for direct access and a genuinely close-knit dynamic, while still being community-driven.</div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">What happens after I apply? <span class="fq-ico">+</span></div>
+        <div class="fq-a">After submitting, you'll be reviewed and contacted within a few days. It's a quick check to make sure the program is the right fit — not a sales conversation.</div>
+      </div>
+      <div class="fq">
+        <div class="fq-q">Why is the price lower for Cohort 1? <span class="fq-ico">+</span></div>
+        <div class="fq-a">Founding participants help shape the program. In exchange for honest feedback and genuine engagement, they get access at a significantly reduced rate. The price increases permanently after this cohort.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>© 2026 Visualizer. All rights reserved.</p>
-
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-logo">Visyual<span>izer</span></div>
+      <p class="foot-copy">© 2026 Visyualizer. All rights reserved.</p>
+      <div class="soc-row">
+        <a href="https://x.com/Visyualizer" class="soc-a" target="_blank" aria-label="X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/visyualizer" class="soc-a" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </footer>
 
+<script>
+// FAQ accordion
+document.querySelectorAll('.fq').forEach(item => {
+  item.querySelector('.fq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.fq').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
